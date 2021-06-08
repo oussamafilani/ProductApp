@@ -1,0 +1,3 @@
+@hostname = http://localhost/ProductApp/api/get_products.php
+
+POST   {{hostname}}

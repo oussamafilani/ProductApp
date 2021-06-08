@@ -152,7 +152,20 @@ table.shoping-cart-table tr td:last-child {
   margin-bottom: 15px;
 }
 
-.btn-add__card{
+.btn-card{
   margin-top: 8px;
   padding: 5px;
+}
+
+.crud-box{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;;
+}
+.btn-card__delete{
+float: left;
+}
+.btn-card__edit{
+float: right;
+display: none;
 }
