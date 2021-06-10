@@ -169,6 +169,10 @@ float: left;
 float: right;
 display: none;
 }
+
+
+/* Loading */
+
 .lds-dual-ring {
   display: inline-block;
   width: 80px;
@@ -179,7 +183,7 @@ display: none;
   display: block;
   width: 64px;
   height: 64px;
-  margin: 8px;
+  margin: 400px auto;
   border-radius: 50%;
   border: 6px solid #414141;
   border-color: #414141 transparent #414141 transparent;

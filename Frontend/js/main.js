@@ -97,13 +97,20 @@ const fetchOne = async (id) => {
 const editProduct = async () => {
 
   const editModal = document.querySelector('#editForm')
-  const inputs = Array.from(editModal.querySelectorAll('input'))
+  const inputs = Array.from(editModal.querySelectorAll('input[type="text"]'))
+  const imageInput = editModal.querySelector('input[type="file"]')
 
   let data = {}
 
   inputs.forEach(input => {
     data[`${input.name}`] = input.value;
   })
+
+  const formData = new FormData()
+
+  formData.append('file', imageInput.files[0])
+
+
 
 
 
@@ -116,4 +123,14 @@ const editProduct = async () => {
   })
     .then(res => res.json())
     .then(data => console.log(data))
+
+    fetch('http://localhost/ProductApp/Backend/api/product/postImage.php', {
+      method: 'POST',
+      // headers: {
+      //   'content-type': 'multipart/form-data'
+      // },
+      body: formData
+    })
+      .then(res => res.json())
+      .then(data => console.log(data))
 }
