@@ -110,10 +110,6 @@ const editProduct = async () => {
 
   formData.append('file', imageInput.files[0])
 
-
-
-
-
   fetch('http://localhost/ProductApp/Backend/api/product/update.php', {
     method: 'PUT',
     headers: {

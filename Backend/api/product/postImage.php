@@ -35,3 +35,13 @@ if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_dir)) {
         array('message' => 'File Not Created')
     );
 }
+
+// if ($_FILES['file']['uploadFile'] === UPLOAD_ERR_OK) { 
+//     /**
+//     * Do the upload process mentioned above
+//     **/
+//     } else { 
+//     /**
+//     * There were an error
+//     **/ 
+//     } 
