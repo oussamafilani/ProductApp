@@ -2,11 +2,14 @@ const btn = document.querySelector("#btn_load")
 const product = document.querySelector("#products")
 const btn_delete = document.querySelector(".btn-add__delete")
 
-      const readProduct = async () => {
-        const res = await fetch("http://localhost/ProductApp/api/product/read.php");
-        const data = await res.json();
-        console.log(data);
-        let output = "";
+const readProduct = async () => {
+  product.innerHTML = ''
+  const res = await fetch("http://localhost/ProductApp/api/product/read.php");
+  const data = await res.json();
+  console.log(data);
+  
+  let output = "";
+
        
         for (let i=0 ; i<data.length; i++) {
           output += 
@@ -38,15 +41,16 @@ const btn_delete = document.querySelector(".btn-add__delete")
 
       
         }
-        product.insertAdjacentHTML("afterend", output);
+        product.insertAdjacentHTML("afterbegin", output);
       };
-// btn.addEventListener("click",readProduct)
+// document.addEventListener("load",readProduct)
 readProduct();
 
 function deleteProduct(id){
   obj = {
     id: `${id}`
 }
+
 fetch('http://localhost/ProductApp/api/product/delete.php', {
     method: 'DELETE',
     headers: {
