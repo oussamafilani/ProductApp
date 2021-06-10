@@ -4,7 +4,7 @@ const btn_delete = document.querySelector(".btn-add__delete")
 
 const readProduct = async () => {
   product.innerHTML = ''
-  const res = await fetch("http://localhost/ProductApp/api/product/read.php");
+  const res = await fetch("http://localhost/ProductApp/Backend/api/product/read.php");
   const data = await res.json();
   console.log(data);
   
@@ -30,7 +30,8 @@ const readProduct = async () => {
 
                 <button class="btn btn-xs btn-outline btn-danger btn-card btn-add__delete" onclick="deleteProduct(${data[i].id})">delete <i class="fa fa-trash"></i>
                 </button>
-                <button  class="btn btn-xs btn-outline btn-success btn-card btn-add__edit float-right">edit <i class="fa fa-edit"></i>
+                <button  class="btn btn-xs btn-outline btn-success btn-card btn-add__edit float-right"   data-toggle="modal"
+                data-target="#edit-modal">edit <i class="fa fa-edit"></i>
                 </button>
               </div>
               </div>
@@ -51,7 +52,7 @@ function deleteProduct(id){
     id: `${id}`
 }
 
-fetch('http://localhost/ProductApp/api/product/delete.php', {
+fetch('http://localhost/ProductApp/Backend/api/product/delete.php', {
     method: 'DELETE',
     headers: {
         'Content-Type': 'application/json'
