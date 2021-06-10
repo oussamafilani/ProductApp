@@ -23,7 +23,7 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,
 // exit();
 
 
-$target_dir = "../../public/assets/img/product" . basename($_FILES["file"]["name"]);
+$target_dir = "../../public/assets/img/image_" . basename($_FILES["file"]["name"]);
 $uploadOK = 1;
 
 if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_dir)) {
