@@ -1,5 +1,6 @@
 const btn = document.querySelector("#btn_load")
 const product = document.querySelector("#products")
+const btn_delete = document.querySelector(".btn-add__delete")
 
       const readProduct = async () => {
         const res = await fetch("http://localhost/ProductApp/api/product/read.php");
@@ -24,7 +25,7 @@ const product = document.querySelector("#products")
                 </div>
                 <div class="crud-box">
 
-                <button class="btn btn-xs btn-outline btn-danger btn-card btn-add__delete onclick="deleteProduct(${data[i].id})">delete <i class="fa fa-trash"></i>
+                <button class="btn btn-xs btn-outline btn-danger btn-card btn-add__delete" onclick="deleteProduct(${data[i].id})">delete <i class="fa fa-trash"></i>
                 </button>
                 <button  class="btn btn-xs btn-outline btn-success btn-card btn-add__edit float-right">edit <i class="fa fa-edit"></i>
                 </button>
@@ -39,15 +40,14 @@ const product = document.querySelector("#products")
         }
         product.insertAdjacentHTML("afterend", output);
       };
-// btn.addEventListener("click",myfunction)
+// btn.addEventListener("click",readProduct)
 readProduct();
 
 function deleteProduct(id){
   obj = {
     id: `${id}`
 }
-
-fetch('http://localhost/rest_api/restApi.php', {
+fetch('http://localhost/ProductApp/api/product/delete.php', {
     method: 'DELETE',
     headers: {
         'Content-Type': 'application/json'
@@ -55,5 +55,8 @@ fetch('http://localhost/rest_api/restApi.php', {
     body: JSON.stringify(obj)
 }).then(res => res.json())
 .then(data => console.log(data))
+.then(readProduct())
 
 }
+
+// btn_delete.addEventListener("click",deleteProduct)

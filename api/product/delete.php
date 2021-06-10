@@ -12,7 +12,7 @@ include_once '../../models/Product.php';
 $database = new Connect();
 $db = $database->connect();
 
-// Instantiate blog post object
+// Instantiate product object
 $product = new Product($db);
 
 // Get raw posted data
