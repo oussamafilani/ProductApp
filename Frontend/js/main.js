@@ -32,7 +32,7 @@ const readProduct = async (withLoader = true, duration = 1000) => {
           <div class="ibox">
             <div class="ibox-content product-box">
               <div class="product-imitation">
-                <img src="http://localhost/ProductApp/Backend/public/assets/img/placeholder.webp">
+                <img src="${data[i].image}">
               </div>
               <div class="product-desc">${data[i].description}<span class="product-price">${data[i].price}</span><small class="text-muted">${data[i].category}</small><a href="#" class="product-name">${data[i].title}</a>
   
@@ -130,3 +130,4 @@ const editProduct = async () => {
       .then(res => res.json())
       .then(data => console.log(data))
 }
+
