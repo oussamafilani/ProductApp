@@ -14,6 +14,7 @@ const readProduct = async (withLoader = true, duration = 1000) => {
   
   const res = await fetch("http://localhost/ProductApp/Backend/api/product/read.php").then(isLoading = false)
   const data = await res.json();
+  console.log("my data product");
   console.log(data);
 
   if (withLoader) {
